@@ -3,11 +3,12 @@ package org.acme;
 import data.Person;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("person")
+@Path("/person")
 public class PersonResource {
 
     @GET
@@ -15,7 +16,6 @@ public class PersonResource {
     public Person getPerson() {
         Person person = new Person();
         person.setName("Freja");
-        person.setAddress("Spaden");
         return person;
     }
 }

@@ -1,32 +1,24 @@
+import data.Person;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.acme.GreetingResource;
 import org.acme.PersonResource;
 
 import static org.testng.Assert.assertEquals;
 
-public class MyStepdefs {
+public class PersonStepdefs {
 
     String result;
-    GreetingResource service = new GreetingResource();
     PersonResource person = new PersonResource();
-    @When("I call the hello service")
-    public void iCallTheHelloService() {
-        result = service.hello();
-    }
-
-    @Then("I get the answer {string}")
-    public void iGetTheAnswer(String string) {
-        assertEquals(string,result);
-    }
-
+    Person expectedPerson = new Person();
     @Given("the getPerson method has been called")
-    public void theGetPersonMethodHasBeenCalled() {
-    }
+    public void theGetPersonMethodHasBeenCalled() { result = String.valueOf(person.getPerson());
+        System.out.println(result);}
 
     @When("the response is received")
     public void theResponseIsReceived() {
+        /*expectedPerson.setName("Freja");
+        assertEquals(expectedPerson, person.getPerson());*/
     }
 
     @Then("the response should contain a person object with name {string} and address {string}")
